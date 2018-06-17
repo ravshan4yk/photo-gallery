@@ -1,0 +1,25 @@
+<div *ngFor="let photo of photos"
+     (click)="openModal('modal-photo', photo.url)"
+     class="gallery">
+  <img [src]="photo.thumbnailUrl">
+  <div class="desc">
+    {{photo.title}}
+  </div>
+</div>
+
+<br class="clearfix"/>
+
+<div class="button-more" *ngIf="showLoadMore">
+  <button (click)="loadMore()">
+    Загрузить еще
+  </button>
+</div>
+
+<app-modal id="modal-photo">
+  <div class="modal">
+    <div class="modal-body">
+      <img [src]="photoUrl">
+    </div>
+  </div>
+  <div class="modal-background"></div>
+</app-modal>
